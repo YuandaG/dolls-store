@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>手作毛绒娃娃 | 每一个都是独一无二</title>
+    <meta name="description" content="手工制作的毛绒娃娃，每一个都独一无二，充满温度与爱">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h1>手作娃娃屋</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="active">首页</a></li>
+                <li><a href="#products">产品</a></li>
+                <li><a href="#about">关于</a></li>
+                <li><a href="#faq">常见问题</a></li>
+                <li class="nav-cart">
+                    <a href="#cart" id="cartBtn">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 英雄区域 -->
+    <section class="hero" id="home">
+        <div class="hero-overlay">
+            <div class="container hero-content">
+                <h1 class="hero-title">手作的温度，独一无二的陪伴</h1>
+                <p class="hero-subtitle">每一个娃娃都是用心制作的礼物</p>
+                <a href="#products" class="btn btn-primary">浏览产品</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 特色产品 -->
+    <section class="featured">
+        <div class="container">
+            <h2 class="section-title">精选产品</h2>
+            <p class="section-subtitle">用心制作，只为你</p>
+            <div class="product-grid" id="featuredProducts">
+                <!-- 产品卡片将由 JS 动态生成 -->
+            </div>
+        </div>
+    </section>
+
+    <!-- 所有产品 -->
+    <section class="products" id="products">
+        <div class="container">
+            <h2 class="section-title">所有产品</h2>
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">全部</button>
+                <button class="filter-btn" data-filter="pillow">抱枕</button>
+                <button class="filter-btn" data-filter="doll">玩偶</button>
+                <button class="filter-btn" data-filter="ornament">挂件</button>
+            </div>
+            <div class="product-grid" id="allProducts">
+                <!-- 产品卡片将由 JS 动态生成 -->
+            </div>
+        </div>
+    </section>
+
+    <!-- 关于我们 -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop" alt="手作过程">
+                </div>
+                <div class="about-text">
+                    <h2 class="section-title">关于手作娃娃屋</h2>
+                    <p>这里每一个娃娃都是我亲手制作的，从选材到缝制，每一个细节都倾注了心血。</p>
+                    <p>我相信，手作的意义在于那份独一无二的温度。机器可以复制千千万万个相同的物品，但手作的每一个作品，都有着它自己的故事。</p>
+                    <p>希望这些小娃娃能给你带来温暖和快乐。</p>
+                    <div class="stats">
+                        <div class="stat">
+                            <span class="stat-number">100+</span>
+                            <span class="stat-label">满意顾客</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">50+</span>
+                            <span class="stat-label">原创设计</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-label">手工制作</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 常见问题 -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <h2 class="section-title">常见问题</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>制作需要多长时间？</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>每个产品都是手工制作，通常需要 3-5 个工作日。如果是定制产品，可能需要 7-10 个工作日。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>可以退换货吗？</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>由于手作产品的特殊性，非质量问题不支持退换货。收到产品后如有质量问题，请在 3 天内联系我们处理。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>配送范围和运费？</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>我们支持全国配送。运费：江浙沪 10 元，其他地区 15 元，订单满 199 元免运费。通常 3-7 天送达。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>接受定制吗？</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>接受简单定制，如颜色、尺寸调整。复杂定制需求请先联系我们沟通可行性。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>如何清洗保养？</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>建议手洗或轻柔机洗，冷水洗涤，自然晾干。避免暴晒和高温烘干。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 购物车侧边栏 -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-overlay" id="cartOverlay"></div>
+        <div class="cart-content">
+            <div class="cart-header">
+                <h3>购物车</h3>
+                <button class="cart-close" id="cartClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="cart-items" id="cartItems">
+                <!-- 购物车商品将由 JS 动态生成 -->
+            </div>
+            <div class="cart-footer">
+                <div class="cart-total">
+                    <span>总计：</span>
+                    <span class="cart-total-price" id="cartTotal">¥0</span>
+                </div>
+                <button class="btn btn-primary btn-block" id="checkoutBtn">去结算</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 产品详情模态框 -->
+    <div class="modal" id="productModal">
+        <div class="modal-overlay" id="modalOverlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="product-detail" id="productDetail">
+                <!-- 产品详情将由 JS 动态生成 -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>手作娃娃屋</h3>
+                    <p>用心制作每一个娃娃</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="微信"><i class="fab fa-weixin"></i></a>
+                        <a href="#" aria-label="微博"><i class="fab fa-weibo"></i></a>
+                        <a href="#" aria-label="小红书"><i class="fas fa-book"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#products">产品</a></li>
+                        <li><a href="#about">关于我们</a></li>
+                        <li><a href="#faq">常见问题</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>联系我们</h4>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> contact@dolls-store.com</li>
+                        <li><i class="fas fa-phone"></i> 400-123-4567</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 手作娃娃屋. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
