@@ -323,6 +323,10 @@ button {
     padding: var(--spacing-xxl) 0;
 }
 
+.products.ready-made {
+    background-color: var(--color-white);
+}
+
 .product-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -403,6 +407,32 @@ button {
     font-weight: 700;
     color: var(--color-primary);
     margin-bottom: var(--spacing-md);
+}
+
+.product-type {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--color-accent);
+    margin-bottom: var(--spacing-md);
+}
+
+.product-card.custom-case .product-actions .btn {
+    background: transparent;
+    border: 2px solid var(--color-primary);
+    color: var(--color-primary);
+}
+
+.product-card.custom-case .product-actions .btn:hover {
+    background: var(--color-primary);
+    color: var(--color-white);
+}
+
+.product-card.ready-product {
+    border-color: rgba(139, 115, 85, 0.15);
+}
+
+.product-card.ready-product .product-badge {
+    background: linear-gradient(135deg, var(--color-accent) 0%, #f4a261 100%);
 }
 
 .product-actions {

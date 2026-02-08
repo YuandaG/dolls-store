@@ -18,9 +18,16 @@
             <ul class="nav-menu">
                 <li><a href="#home" class="active">首页</a></li>
                 <li><a href="#customize">定制服务</a></li>
-                <li><a href="#products">作品展示</a></li>
+                <li><a href="#products">定制案例</a></li>
+                <li><a href="#ready-made">现成玩偶</a></li>
                 <li><a href="#process">制作流程</a></li>
                 <li><a href="#faq">常见问题</a></li>
+                <li class="nav-cart">
+                    <a href="#cart" id="cartBtn">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </a>
+                </li>
             </ul>
             <div class="nav-toggle">
                 <span></span>
@@ -161,15 +168,32 @@
     <!-- 作品展示 -->
     <section class="products" id="products">
         <div class="container">
-            <h2 class="section-title">作品展示</h2>
-            <p class="section-subtitle">过往定制案例，每一份都是用心之作</p>
+            <h2 class="section-title">定制案例展示</h2>
+            <p class="section-subtitle">过往定制作品，每一份都是用心之作</p>
             <div class="filters">
                 <button class="filter-btn active" data-filter="all">全部</button>
                 <button class="filter-btn" data-filter="dog">狗狗</button>
                 <button class="filter-btn" data-filter="cat">猫咪</button>
                 <button class="filter-btn" data-filter="other">其他</button>
             </div>
-            <div class="product-grid" id="allProducts">
+            <div class="product-grid" id="customProducts">
+                <!-- 产品卡片将由 JS 动态生成 -->
+            </div>
+        </div>
+    </section>
+
+    <!-- 现成玩偶 -->
+    <section class="products ready-made" id="ready-made">
+        <div class="container">
+            <h2 class="section-title">现成玩偶</h2>
+            <p class="section-subtitle">精心制作的现货，可以直接购买</p>
+            <div class="filters">
+                <button class="filter-btn active" data-filter-ready="all">全部</button>
+                <button class="filter-btn" data-filter-ready="pillow">抱枕</button>
+                <button class="filter-btn" data-filter-ready="doll">玩偶</button>
+                <button class="filter-btn" data-filter-ready="ornament">挂件</button>
+            </div>
+            <div class="product-grid" id="readyProducts">
                 <!-- 产品卡片将由 JS 动态生成 -->
             </div>
         </div>
@@ -319,6 +343,29 @@
             </div>
         </div>
     </section>
+
+    <!-- 购物车侧边栏 -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-overlay" id="cartOverlay"></div>
+        <div class="cart-content">
+            <div class="cart-header">
+                <h3>购物车</h3>
+                <button class="cart-close" id="cartClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="cart-items" id="cartItems">
+                <!-- 购物车商品将由 JS 动态生成 -->
+            </div>
+            <div class="cart-footer">
+                <div class="cart-total">
+                    <span>总计：</span>
+                    <span class="cart-total-price" id="cartTotal">¥0</span>
+                </div>
+                <button class="btn btn-primary btn-block" id="checkoutBtn">去结算</button>
+            </div>
+        </div>
+    </div>
 
     <!-- 产品详情模态框 -->
     <div class="modal" id="productModal">
