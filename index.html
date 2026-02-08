@@ -172,18 +172,36 @@
     </section>
 
     <!-- 作品展示 -->
-    <section class="products" id="products">
+    <section class="products showcase-carousel" id="products">
         <div class="container">
             <h2 class="section-title">定制案例展示</h2>
             <p class="section-subtitle">过往定制作品，每一份都是用心之作</p>
-            <div class="filters">
-                <button class="filter-btn active" data-filter="all">全部</button>
-                <button class="filter-btn" data-filter="dog">狗狗</button>
-                <button class="filter-btn" data-filter="cat">猫咪</button>
-                <button class="filter-btn" data-filter="other">其他</button>
+
+            <!-- 轮播容器 -->
+            <div class="carousel-container">
+                <button class="carousel-nav carousel-nav-prev" id="carouselPrev">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+
+                <div class="carousel-wrapper">
+                    <div class="carousel-track" id="carouselTrack">
+                        <!-- 轮播项目将由 JS 动态生成 -->
+                    </div>
+                </div>
+
+                <button class="carousel-nav carousel-nav-next" id="carouselNext">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
             </div>
-            <div class="product-grid" id="customProducts">
-                <!-- 产品卡片将由 JS 动态生成 -->
+
+            <!-- 轮播指示器 -->
+            <div class="carousel-indicators" id="carouselIndicators">
+                <!-- 指示器将由 JS 动态生成 -->
+            </div>
+
+            <!-- 查看更多按钮 -->
+            <div class="showcase-cta">
+                <a href="#customize" class="btn btn-primary">我想定制同款</a>
             </div>
         </div>
     </section>

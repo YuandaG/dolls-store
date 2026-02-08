@@ -382,6 +382,147 @@ button {
     background-color: var(--color-white);
 }
 
+/* ========================================
+   轮播组件
+   ======================================== */
+.carousel-container {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.carousel-wrapper {
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-sm) 0;
+}
+
+.carousel-track {
+    display: flex;
+    gap: var(--spacing-lg);
+    transition: transform 0.5s ease;
+}
+
+.carousel-item {
+    flex: 0 0 calc(33.333% - 12px);
+    max-width: calc(33.333% - 12px);
+}
+
+.carousel-item .product-card {
+    height: 100%;
+}
+
+.carousel-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: all var(--transition-normal);
+    color: var(--color-primary);
+    font-size: 20px;
+}
+
+.carousel-nav:hover {
+    background: var(--color-primary);
+    color: var(--color-white);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-nav-prev {
+    left: 10px;
+}
+
+.carousel-nav-next {
+    right: 10px;
+}
+
+.carousel-indicators {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: var(--spacing-lg);
+}
+
+.carousel-indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: var(--radius-full);
+    background-color: var(--color-border);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.carousel-indicator.active {
+    background-color: var(--color-primary);
+    width: 30px;
+}
+
+.carousel-indicator:hover {
+    background-color: var(--color-primary-dark);
+}
+
+.showcase-cta {
+    text-align: center;
+    margin-top: var(--spacing-lg);
+}
+
+/* 自动播放动画 */
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-100% - var(--spacing-lg)));
+    }
+}
+
+.carousel-track.auto-scroll {
+    animation: scroll 30s linear infinite;
+}
+
+/* 轮播暂停 */
+.carousel-wrapper:hover .carousel-track {
+    animation-play-state: paused;
+}
+
+/* 轮播响应式 */
+@media (max-width: 1023px) {
+    .carousel-item {
+        flex: 0 0 calc(50% - var(--spacing-lg));
+        max-width: calc(50% - var(--spacing-lg));
+    }
+}
+
+@media (max-width: 767px) {
+    .carousel-item {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .carousel-nav {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+
+    .carousel-nav-prev {
+        left: 5px;
+    }
+
+    .carousel-nav-next {
+        right: 5px;
+    }
+}
+
 .product-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));

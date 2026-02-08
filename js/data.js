@@ -408,10 +408,184 @@ function showToast(message) {
 }
 
 // ========================================
+// 轮播组件
+// ========================================
+let carouselState = {
+    currentIndex: 0,
+    itemsPerView: 3,
+    autoPlay: true,
+    autoPlayInterval: null,
+    isTransitioning: false
+};
+
+// 初始化轮播
+function initCarousel() {
+    const track = document.getElementById('carouselTrack');
+    const indicators = document.getElementById('carouselIndicators');
+
+    // 复制定制案例用于轮播（复制一份实现无缝循环）
+    const carouselItems = [...customProducts, ...customProducts.slice(0, 3)];
+
+    // 渲染轮播项目
+    track.innerHTML = carouselItems.map((product, index) => {
+        const cardHTML = renderProductCard(product);
+        return `
+            <div class="carousel-item" data-index="${index}">
+                ${cardHTML}
+            </div>
+        `;
+    }).join('');
+
+    // 渲染指示器（基于原始数量）
+    indicators.innerHTML = customProducts.map((_, index) => `
+        <div class="carousel-indicator ${index === 0 ? 'active' : ''}" data-index="${index}"></div>
+    `).join('');
+
+    // 计算每页显示数量
+    updateItemsPerView();
+
+    // 绑定事件
+    bindCarouselEvents();
+
+    // 启动自动播放
+    startAutoPlay();
+}
+
+// 更新每页显示数量
+function updateItemsPerView() {
+    const screenWidth = window.innerWidth;
+    if (screenWidth >= 1024) {
+        carouselState.itemsPerView = 3;
+    } else if (screenWidth >= 768) {
+        carouselState.itemsPerView = 2;
+    } else {
+        carouselState.itemsPerView = 1;
+    }
+}
+
+// 绑定轮播事件
+function bindCarouselEvents() {
+    const prevBtn = document.getElementById('carouselPrev');
+    const nextBtn = document.getElementById('carouselNext');
+    const indicators = document.querySelectorAll('.carousel-indicator');
+    const track = document.getElementById('carouselTrack');
+
+    prevBtn.addEventListener('click', () => {
+        stopAutoPlay();
+        slideCarousel('prev');
+    });
+
+    nextBtn.addEventListener('click', () => {
+        stopAutoPlay();
+        slideCarousel('next');
+    });
+
+    indicators.forEach(indicator => {
+        indicator.addEventListener('click', () => {
+            stopAutoPlay();
+            const index = parseInt(indicator.dataset.index);
+            goToSlide(index);
+        });
+    });
+
+    // 鼠标悬停暂停
+    track.addEventListener('mouseenter', stopAutoPlay);
+    track.addEventListener('mouseleave', startAutoPlay);
+
+    // 触摸支持
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    track.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+        stopAutoPlay();
+    }, { passive: true });
+
+    track.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+        startAutoPlay();
+    }, { passive: true });
+
+    function handleSwipe() {
+        const diff = touchStartX - touchEndX;
+        if (diff > 50) {
+            slideCarousel('next');
+        } else if (diff < -50) {
+            slideCarousel('prev');
+        }
+    }
+
+    // 窗口大小改变时更新
+    window.addEventListener('resize', () => {
+        updateItemsPerView();
+        updateCarouselPosition();
+    });
+}
+
+// 滑动轮播
+function slideCarousel(direction) {
+    if (carouselState.isTransitioning) return;
+
+    const totalItems = customProducts.length;
+
+    if (direction === 'next') {
+        carouselState.currentIndex = (carouselState.currentIndex + 1) % totalItems;
+    } else {
+        carouselState.currentIndex = (carouselState.currentIndex - 1 + totalItems) % totalItems;
+    }
+
+    updateCarouselPosition();
+    updateIndicators();
+}
+
+// 跳转到指定幻灯片
+function goToSlide(index) {
+    if (carouselState.isTransitioning) return;
+
+    carouselState.currentIndex = index;
+    updateCarouselPosition();
+    updateIndicators();
+}
+
+// 更新轮播位置
+function updateCarouselPosition() {
+    const track = document.getElementById('carouselTrack');
+    const itemWidth = track.querySelector('.carousel-item')?.offsetWidth || 0;
+    const gap = 24; // 与 CSS 中的 gap 保持一致
+    const offset = -(carouselState.currentIndex * (itemWidth + gap));
+
+    track.style.transform = `translateX(${offset}px)`;
+}
+
+// 更新指示器
+function updateIndicators() {
+    const indicators = document.querySelectorAll('.carousel-indicator');
+    indicators.forEach((indicator, index) => {
+        indicator.classList.toggle('active', index === carouselState.currentIndex);
+    });
+}
+
+// 启动自动播放
+function startAutoPlay() {
+    if (!carouselState.autoPlay) return;
+
+    carouselState.autoPlayInterval = setInterval(() => {
+        slideCarousel('next');
+    }, 4000);
+}
+
+// 停止自动播放
+function stopAutoPlay() {
+    if (carouselState.autoPlayInterval) {
+        clearInterval(carouselState.autoPlayInterval);
+        carouselState.autoPlayInterval = null;
+    }
+}
+
+// ========================================
 // 渲染函数
 // ========================================
-
-// 渲染产品卡片
 function renderProductCard(product) {
     const isCustom = product.type === 'custom';
 
@@ -727,8 +901,8 @@ function init() {
     initFileUpload();
     initCustomOrderForm();
 
-    // 渲染定制案例
-    document.getElementById('customProducts').innerHTML = customProducts.map(renderProductCard).join('');
+    // 初始化轮播
+    initCarousel();
 
     // 渲染现成玩偶
     document.getElementById('readyProducts').innerHTML = readyProducts.map(renderProductCard).join('');
@@ -748,25 +922,6 @@ function init() {
             if (product) {
                 addToCart(productId);
             }
-        });
-    });
-
-    // 定制案例筛选按钮
-    document.querySelectorAll('[data-filter]').forEach(btn => {
-        btn.addEventListener('click', () => {
-            document.querySelectorAll('[data-filter]').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-
-            const filter = btn.dataset.filter;
-            const cards = document.querySelectorAll('#customProducts .product-card');
-
-            cards.forEach(card => {
-                if (filter === 'all' || card.dataset.category === filter) {
-                    card.style.display = '';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
         });
     });
 
