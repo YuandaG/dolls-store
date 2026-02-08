@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>手作毛绒娃娃 | 每一个都是独一无二</title>
-    <meta name="description" content="手工制作的毛绒娃娃，每一个都独一无二，充满温度与爱">
+    <title>毛绒玩偶定制 | 根据你的宠物照片制作独一无二的手作玩偶</title>
+    <meta name="description" content="根据你宠物的照片，手工制作独一无二的毛绒玩偶。上传照片，告诉我们你的需求，我们为你定制专属回忆。">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -13,19 +13,14 @@
     <nav class="navbar">
         <div class="container">
             <div class="nav-brand">
-                <h1>手作娃娃屋</h1>
+                <h1>萌宠手作坊</h1>
             </div>
             <ul class="nav-menu">
                 <li><a href="#home" class="active">首页</a></li>
-                <li><a href="#products">产品</a></li>
-                <li><a href="#about">关于</a></li>
+                <li><a href="#customize">定制服务</a></li>
+                <li><a href="#products">作品展示</a></li>
+                <li><a href="#process">制作流程</a></li>
                 <li><a href="#faq">常见问题</a></li>
-                <li class="nav-cart">
-                    <a href="#cart" id="cartBtn">
-                        <i class="fas fa-shopping-cart"></i>
-                        <span class="cart-count" id="cartCount">0</span>
-                    </a>
-                </li>
             </ul>
             <div class="nav-toggle">
                 <span></span>
@@ -39,26 +34,184 @@
     <section class="hero" id="home">
         <div class="hero-overlay">
             <div class="container hero-content">
-                <h1 class="hero-title">手作的温度，独一无二的陪伴</h1>
-                <p class="hero-subtitle">每一个娃娃都是用心制作的礼物</p>
-                <a href="#products" class="btn btn-primary">浏览产品</a>
+                <h1 class="hero-title">用一针一线，重现你的毛孩子</h1>
+                <p class="hero-subtitle">根据宠物照片，手工定制独一无二的毛绒玩偶</p>
+                <a href="#customize" class="btn btn-primary">立即定制</a>
+                <a href="#products" class="btn btn-outline" style="margin-left: 10px;">查看作品</a>
             </div>
         </div>
     </section>
 
-    <!-- 特色产品 -->
-    <section class="featured">
+    <!-- 定制服务介绍 -->
+    <section class="customize-intro" id="customize">
         <div class="container">
-            <h2 class="section-title">精选产品</h2>
-            <p class="section-subtitle">用心制作，只为你</p>
-            <div class="product-grid" id="featuredProducts">
+            <h2 class="section-title">定制你的专属玩偶</h2>
+            <p class="section-subtitle">只需三步，让美好陪伴永存</p>
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <h3>1. 上传照片</h3>
+                    <p>提供你宠物的清晰照片，多角度更佳</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-edit"></i>
+                    </div>
+                    <h3>2. 描述需求</h3>
+                    <p>告诉我们尺寸、颜色、特殊要求</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>3. 收货</h3>
+                    <p>等待 7-14 天，收到专属手作玩偶</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 定制表单 -->
+    <section class="custom-order">
+        <div class="container">
+            <div class="custom-order-content">
+                <div class="custom-order-info">
+                    <h2>开始定制</h2>
+                    <p>每一个玩偶都是独一无二的，我们会根据你提供的照片和需求，用心制作专属的毛绒玩偶。</p>
+                    <div class="price-info">
+                        <h3>定制价格</h3>
+                        <div class="price-item">
+                            <span class="price-size">小型 (15-20cm)</span>
+                            <span class="price-value">¥299 起</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="price-size">中型 (25-30cm)</span>
+                            <span class="price-value">¥499 起</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="price-size">大型 (35-45cm)</span>
+                            <span class="price-value">¥799 起</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="custom-order-form">
+                    <form id="customOrderForm">
+                        <div class="form-group">
+                            <label for="ownerName">您的称呼 *</label>
+                            <input type="text" id="ownerName" name="ownerName" required placeholder="请输入您的称呼">
+                        </div>
+                        <div class="form-group">
+                            <label for="contactInfo">联系方式 *</label>
+                            <input type="text" id="contactInfo" name="contactInfo" required placeholder="微信/手机号/邮箱">
+                        </div>
+                        <div class="form-group">
+                            <label for="petName">宠物名字</label>
+                            <input type="text" id="petName" name="petName" placeholder="毛孩子的名字">
+                        </div>
+                        <div class="form-group">
+                            <label for="petType">宠物类型 *</label>
+                            <select id="petType" name="petType" required>
+                                <option value="">请选择</option>
+                                <option value="dog">狗狗</option>
+                                <option value="cat">猫咪</option>
+                                <option value="rabbit">兔子</option>
+                                <option value="hamster">仓鼠</option>
+                                <option value="bird">鸟类</option>
+                                <option value="other">其他</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="size">尺寸要求 *</label>
+                            <select id="size" name="size" required>
+                                <option value="">请选择</option>
+                                <option value="small">小型 (15-20cm) - ¥299起</option>
+                                <option value="medium">中型 (25-30cm) - ¥499起</option>
+                                <option value="large">大型 (35-45cm) - ¥799起</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>上传宠物照片 * (至少1张，最多5张)</label>
+                            <div class="file-upload" id="fileUpload">
+                                <input type="file" id="petPhotos" name="petPhotos" accept="image/*" multiple required>
+                                <div class="file-upload-label">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <span>点击或拖拽上传照片</span>
+                                    <span class="file-hint">支持 JPG、PNG 格式，单张不超过 5MB</span>
+                                </div>
+                            </div>
+                            <div class="file-preview" id="filePreview"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="requirements">定制需求描述 *</label>
+                            <textarea id="requirements" name="requirements" rows="4" required placeholder="请描述你的定制需求，例如：&#10;- 希望突出哪些特征&#10;- 颜色是否有特殊要求&#10;- 是否需要添加饰品（如领结、衣服）&#10;- 其他特殊要求"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="deadline">期望完成时间</label>
+                            <input type="date" id="deadline" name="deadline">
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">提交定制需求</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 作品展示 -->
+    <section class="products" id="products">
+        <div class="container">
+            <h2 class="section-title">作品展示</h2>
+            <p class="section-subtitle">过往定制案例，每一份都是用心之作</p>
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">全部</button>
+                <button class="filter-btn" data-filter="dog">狗狗</button>
+                <button class="filter-btn" data-filter="cat">猫咪</button>
+                <button class="filter-btn" data-filter="other">其他</button>
+            </div>
+            <div class="product-grid" id="allProducts">
                 <!-- 产品卡片将由 JS 动态生成 -->
             </div>
         </div>
     </section>
 
-    <!-- 所有产品 -->
-    <section class="products" id="products">
+    <!-- 制作流程 -->
+    <section class="process" id="process">
+        <div class="container">
+            <h2 class="section-title">制作流程</h2>
+            <p class="section-subtitle">了解我们的制作过程</p>
+            <div class="process-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-number">1</div>
+                    <div class="timeline-content">
+                        <h3>接收订单</h3>
+                        <p>收到你的定制需求和照片后，我们会在 24 小时内与你联系，确认细节和报价。</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-number">2</div>
+                    <div class="timeline-content">
+                        <h3>设计确认</h3>
+                        <p>根据照片和需求，我们制作设计草图，发送给你确认。确保最终效果符合你的期待。</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-number">3</div>
+                    <div class="timeline-content">
+                        <h3>手工制作</h3>
+                        <p>确认设计后，开始手工制作。小型 7-10 天，中型 10-14 天，大型 14-21 天。</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-number">4</div>
+                    <div class="timeline-content">
+                        <h3>发货</h3>
+                        <p>制作完成后，拍摄成品照片给你确认，满意后立即发货。顺丰包邮，保价送达。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
         <div class="container">
             <h2 class="section-title">所有产品</h2>
             <div class="filters">
@@ -81,22 +234,22 @@
                     <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop" alt="手作过程">
                 </div>
                 <div class="about-text">
-                    <h2 class="section-title">关于手作娃娃屋</h2>
-                    <p>这里每一个娃娃都是我亲手制作的，从选材到缝制，每一个细节都倾注了心血。</p>
-                    <p>我相信，手作的意义在于那份独一无二的温度。机器可以复制千千万万个相同的物品，但手作的每一个作品，都有着它自己的故事。</p>
-                    <p>希望这些小娃娃能给你带来温暖和快乐。</p>
+                    <h2 class="section-title">关于萌宠手作坊</h2>
+                    <p>我是一名宠物爱好者，也是一名手工艺人。自从失去陪伴我十年的小狗后，我决定用这种方式延续与毛孩子们的美好回忆。</p>
+                    <p>每一个定制玩偶都是我亲手设计、裁剪、缝制的。我会仔细观察你提供的照片，捕捉宠物的独特特征——那双灵动的眼睛、可爱的斑点、或是标志性的坐姿。</p>
+                    <p>我相信，机器只能复制外形，而手作才能注入温度和灵魂。</p>
                     <div class="stats">
                         <div class="stat">
-                            <span class="stat-number">100+</span>
-                            <span class="stat-label">满意顾客</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number">50+</span>
-                            <span class="stat-label">原创设计</span>
+                            <span class="stat-number">500+</span>
+                            <span class="stat-label">定制案例</span>
                         </div>
                         <div class="stat">
                             <span class="stat-number">100%</span>
-                            <span class="stat-label">手工制作</span>
+                            <span class="stat-label">好评率</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">3年</span>
+                            <span class="stat-label">制作经验</span>
                         </div>
                     </div>
                 </div>
@@ -115,71 +268,57 @@
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>每个产品都是手工制作，通常需要 3-5 个工作日。如果是定制产品，可能需要 7-10 个工作日。</p>
+                        <p>小型玩偶（15-20cm）约 7-10 天，中型（25-30cm）约 10-14 天，大型（35-45cm）约 14-21 天。如需加急，请备注，我们会尽力安排。</p>
                     </div>
                 </div>
                 <div class="faq-item">
                     <div class="faq-question">
-                        <span>可以退换货吗？</span>
+                        <span>定制需要提供什么样的照片？</span>
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>由于手作产品的特殊性，非质量问题不支持退换货。收到产品后如有质量问题，请在 3 天内联系我们处理。</p>
+                        <p>建议提供多角度清晰照片，包括正面、侧面、背面。特写五官和独特斑点的照片也很重要。照片越多越清晰，制作效果越好。</p>
                     </div>
                 </div>
                 <div class="faq-item">
                     <div class="faq-question">
-                        <span>配送范围和运费？</span>
+                        <span>可以看到制作进度吗？</span>
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>我们支持全国配送。运费：江浙沪 10 元，其他地区 15 元，订单满 199 元免运费。通常 3-7 天送达。</p>
+                        <p>当然！我们会在制作的关键节点（设计草图、裁剪完成、缝制完成）发送进度照片给你，确保最终效果符合期待。</p>
                     </div>
                 </div>
                 <div class="faq-item">
                     <div class="faq-question">
-                        <span>接受定制吗？</span>
+                        <span>不满意可以修改吗？</span>
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>接受简单定制，如颜色、尺寸调整。复杂定制需求请先联系我们沟通可行性。</p>
+                        <p>设计阶段可以免费修改。制作过程中如需调整，视修改程度可能收取少量费用。成品会先拍照确认，满意后再发货。</p>
                     </div>
                 </div>
                 <div class="faq-item">
                     <div class="faq-question">
-                        <span>如何清洗保养？</span>
+                        <span>价格是如何确定的？</span>
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>建议手洗或轻柔机洗，冷水洗涤，自然晾干。避免暴晒和高温烘干。</p>
+                        <p>价格主要根据尺寸和复杂度。基础价格：小型 ¥299 起，中型 ¥499 起，大型 ¥799 起。特殊造型、配件、复杂花纹会额外收费，具体报价在确认需求后告知。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>运费和配送？</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>顺丰包邮，保价配送。发货前会再次确认收货地址。国际运费需额外计算，如有海外配送需求请提前联系。</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- 购物车侧边栏 -->
-    <div class="cart-sidebar" id="cartSidebar">
-        <div class="cart-overlay" id="cartOverlay"></div>
-        <div class="cart-content">
-            <div class="cart-header">
-                <h3>购物车</h3>
-                <button class="cart-close" id="cartClose">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div class="cart-items" id="cartItems">
-                <!-- 购物车商品将由 JS 动态生成 -->
-            </div>
-            <div class="cart-footer">
-                <div class="cart-total">
-                    <span>总计：</span>
-                    <span class="cart-total-price" id="cartTotal">¥0</span>
-                </div>
-                <button class="btn btn-primary btn-block" id="checkoutBtn">去结算</button>
-            </div>
-        </div>
-    </div>
 
     <!-- 产品详情模态框 -->
     <div class="modal" id="productModal">
@@ -199,8 +338,8 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>手作娃娃屋</h3>
-                    <p>用心制作每一个娃娃</p>
+                    <h3>萌宠手作坊</h3>
+                    <p>用一针一线，重现你的毛孩子</p>
                     <div class="social-links">
                         <a href="#" aria-label="微信"><i class="fab fa-weixin"></i></a>
                         <a href="#" aria-label="微博"><i class="fab fa-weibo"></i></a>
@@ -218,13 +357,13 @@
                 <div class="footer-section">
                     <h4>联系我们</h4>
                     <ul>
-                        <li><i class="fas fa-envelope"></i> contact@dolls-store.com</li>
-                        <li><i class="fas fa-phone"></i> 400-123-4567</li>
+                        <li><i class="fas fa-envelope"></i> hello@cutedoll.work</li>
+                        <li><i class="fab fa-weixin"></i> CuteDoll2026</li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 手作娃娃屋. 保留所有权利.</p>
+                <p>&copy; 2026 萌宠手作坊. 用心制作每一份回忆.</p>
             </div>
         </div>
     </footer>

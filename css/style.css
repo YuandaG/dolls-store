@@ -269,6 +269,13 @@ button {
    ======================================== */
 .hero {
     height: 500px;
+    background-image: url('https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=1920&h=800&fit=crop');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+.hero {
+    height: 500px;
     background-image: url('https://images.unsplash.com/photo-1558060370-d644479cb6f7?w=1920&h=800&fit=crop');
     background-size: cover;
     background-position: center;
@@ -990,64 +997,330 @@ button {
 /* ========================================
    响应式设计
    ======================================== */
+/* ========================================
+   定制服务介绍
+   ======================================== */
+.customize-intro {
+    padding: var(--spacing-xxl) 0;
+    background-color: var(--color-white);
+}
+
+.process-steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-xl);
+    margin-top: var(--spacing-xl);
+}
+
+.step {
+    text-align: center;
+    padding: var(--spacing-lg);
+    background: linear-gradient(135deg, var(--color-bg) 0%, var(--color-white) 100%);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+    transition: all var(--transition-normal);
+}
+
+.step:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+}
+
+.step-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto var(--spacing-md);
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    color: var(--color-white);
+}
+
+.step h3 {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-text);
+}
+
+.step p {
+    color: var(--color-text-light);
+    line-height: 1.6;
+}
+
+/* ========================================
+   定制表单
+   ======================================== */
+.custom-order {
+    padding: var(--spacing-xxl) 0;
+    background: linear-gradient(135deg, var(--color-bg) 0%, var(--color-secondary) 100%);
+}
+
+.custom-order-content {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: var(--spacing-xl);
+    background-color: var(--color-white);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    box-shadow: var(--shadow-md);
+}
+
+.custom-order-info h2 {
+    font-size: var(--font-size-xxl);
+    margin-bottom: var(--spacing-md);
+    color: var(--color-primary);
+}
+
+.custom-order-info p {
+    color: var(--color-text-light);
+    line-height: 1.8;
+    margin-bottom: var(--spacing-lg);
+}
+
+.price-info {
+    background: linear-gradient(135deg, var(--color-bg) 0%, var(--color-white) 100%);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+}
+
+.price-info h3 {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--spacing-md);
+    color: var(--color-text);
+}
+
+.price-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-sm) 0;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.price-item:last-child {
+    border-bottom: none;
+}
+
+.price-size {
+    color: var(--color-text-light);
+}
+
+.price-value {
+    font-weight: 700;
+    color: var(--color-primary);
+    font-size: var(--font-size-lg);
+}
+
+.custom-order-form {
+    background-color: var(--color-bg);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-md);
+}
+
+.form-group {
+    margin-bottom: var(--spacing-md);
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--color-text);
+}
+
+.form-group label::after {
+    content: " *";
+    color: var(--color-accent);
+}
+
+.form-group label:not(:has(+ *:required))::after {
+    display: none;
+}
+
+.form-group input[type="text"],
+.form-group input[type="date"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    font-size: var(--font-size-base);
+    font-family: inherit;
+    transition: all var(--transition-fast);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(139, 115, 85, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.file-upload {
+    position: relative;
+    border: 2px dashed var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-lg);
+    text-align: center;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.file-upload:hover {
+    border-color: var(--color-primary);
+    background-color: rgba(139, 115, 85, 0.05);
+}
+
+.file-upload input[type="file"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.file-upload-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: var(--color-text-light);
+}
+
+.file-upload-label i {
+    font-size: 32px;
+    color: var(--color-primary);
+}
+
+.file-hint {
+    font-size: var(--font-size-sm);
+    opacity: 0.7;
+}
+
+.file-preview {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-sm);
+}
+
+.file-preview-item {
+    position: relative;
+    aspect-ratio: 1;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+}
+
+.file-preview-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.file-preview-item .remove {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    width: 24px;
+    height: 24px;
+    background-color: var(--color-danger);
+    color: var(--color-white);
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+/* ========================================
+   制作流程
+   ======================================== */
+.process {
+    padding: var(--spacing-xxl) 0;
+    background-color: var(--color-white);
+}
+
+.process-timeline {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.timeline-item {
+    display: flex;
+    gap: var(--spacing-md);
+    padding: var(--spacing-lg) 0;
+    position: relative;
+}
+
+.timeline-item:not(:last-child)::before {
+    content: '';
+    position: absolute;
+    left: 24px;
+    top: 60px;
+    bottom: -20px;
+    width: 2px;
+    background-color: var(--color-border);
+}
+
+.timeline-number {
+    width: 50px;
+    height: 50px;
+    flex-shrink: 0;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+    color: var(--color-white);
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+}
+
+.timeline-content h3 {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-xs);
+    color: var(--color-text);
+}
+
+.timeline-content p {
+    color: var(--color-text-light);
+    line-height: 1.8;
+}
+
+/* ========================================
+   响应式设计
+   ======================================== */
 @media (max-width: 768px) {
-    .nav-menu {
-        position: fixed;
-        top: 60px;
-        left: -100%;
-        flex-direction: column;
-        background-color: var(--color-white);
-        width: 100%;
-        padding: var(--spacing-md);
-        box-shadow: var(--shadow-md);
-        transition: left var(--transition-normal);
+    .process-steps {
+        grid-template-columns: 1fr;
     }
 
-    .nav-menu.active {
-        left: 0;
+    .custom-order-content {
+        grid-template-columns: 1fr;
     }
 
-    .nav-toggle {
-        display: flex;
+    .timeline-item:not(:last-child)::before {
+        left: 20px;
     }
 
-    .hero-title {
-        font-size: 32px;
-    }
-
-    .hero-subtitle {
+    .timeline-number {
+        width: 40px;
+        height: 40px;
         font-size: var(--font-size-lg);
-    }
-
-    .product-grid {
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-        gap: var(--spacing-md);
-    }
-
-    .about-content {
-        grid-template-columns: 1fr;
-    }
-
-    .about-image {
-        order: -1;
-    }
-
-    .stats {
-        grid-template-columns: 1fr;
-    }
-
-    .cart-sidebar {
-        width: 100%;
-        right: -100%;
-    }
-
-    .modal-content {
-        grid-template-columns: 1fr;
-        margin: 20px;
-        max-height: calc(100vh - 40px);
-    }
-
-    .section-title {
-        font-size: var(--font-size-xl);
     }
 }
